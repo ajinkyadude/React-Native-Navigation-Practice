@@ -68,7 +68,7 @@ function App(): React.JSX.Element {
 }
 
 const styles = StyleSheet.create({
-  sectionContainer: {
+  sectionContainer: { 
     marginTop: 32,
     paddingHorizontal: 24,
   },
