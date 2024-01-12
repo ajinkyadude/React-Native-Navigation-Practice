@@ -57,7 +57,6 @@ function App(): React.JSX.Element {
   }, [tabIndex]);
 
   return (
-    // <View></View>
     <NavigationContainer>
       <Drawer.Navigator>
         <Drawer.Screen name="Feed" component={Feed} />
