@@ -34,6 +34,8 @@ const HomeScreen = () => {
               alignItems: 'center',
               justifyContent: 'center',
               margin: 20,
+              elevation: 20,
+              shadowColor: '#52006A',
             }}>
             <Text style={{fontWeight: 'bold', fontStyle: 'italic'}}>
               {item}
