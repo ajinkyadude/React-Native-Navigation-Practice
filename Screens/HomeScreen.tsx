@@ -1,11 +1,48 @@
-import { Text, View } from "react-native"
+import {Text, TouchableOpacity, View, Dimensions, FlatList} from 'react-native';
 
 const HomeScreen = () => {
-    return(
-        <View style={{alignItems: 'center', justifyContent: 'center', flex: 1}}>
-            <Text>HomeScreen</Text>
-        </View>
-    )
-}
+  const {width, height} = Dimensions.get('window');
+  const arr = [
+    'Ajinkya',
+    'Dude',
+    'Ajay',
+    'test',
+    'long',
+    'short',
+    'distance',
+    'phone',
+  ];
+  return (
+    <FlatList
+      data={arr}
+      numColumns={2}
+      contentContainerStyle={{
+        width: width,
+      }}
+      showsVerticalScrollIndicator={false}
+      renderItem={({item}) => {
+        return (
+          <TouchableOpacity
+            style={{
+              borderWidth: 1,
+              backgroundColor: '#fcc203',
+              borderRadius: 4,
+              shadowOpacity: 1,
+              shadowOffset: {width: 5, height: 5},
+              width: width * 0.4,
+              height: width * 0.4,
+              alignItems: 'center',
+              justifyContent: 'center',
+              margin: 20,
+            }}>
+            <Text style={{fontWeight: 'bold', fontStyle: 'italic'}}>
+              {item}
+            </Text>
+          </TouchableOpacity>
+        );
+      }}
+    />
+  );
+};
 
 export default HomeScreen;
