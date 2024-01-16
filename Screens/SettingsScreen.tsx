@@ -3,6 +3,19 @@ import {Text, View, Animated, Button} from 'react-native';
 
 const SettingsScreen = () => {
   const val = useRef(new Animated.Value(0)).current;
+  
+  const IIFE = (()=>{
+    var sum = 20;
+    console.log("Sum of NUmner "+sum);
+    return () => {console.log(" Addition sum "+(sum+10));
+    }
+  })();
+
+  IIFE()
+  IIFE()
+  IIFE()
+  IIFE()
+  IIFE()
 
   const AnimationStart = () => {
     Animated.timing(val, {
