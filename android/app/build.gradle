@@ -56,6 +56,12 @@ react {
  */
 def enableProguardInReleaseBuilds = false
 
+project.ext.vectoricons = [
+        iconFontNames: [ 'MaterialIcons.ttf', 'EvilIcons.ttf','FontAwesome.ttf','AntDesign.ttf','Entypo.ttf','Feather.ttf','Ionicons.ttf','Octicons.ttf','MaterialCommunityIcons.ttf','Foundation.ttf' ] // Name of the font files you want to copy
+]
+
+apply from: file("../../node_modules/react-native-vector-icons/fonts.gradle");
+
 /**
  * The preferred build flavor of JavaScriptCore (JSC)
  *

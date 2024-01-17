@@ -7,8 +7,6 @@
 
 import React, {useRef, useState} from 'react';
 import type {PropsWithChildren} from 'react';
-import {createDrawerNavigator} from '@react-navigation/drawer';
-const Drawer = createDrawerNavigator();
 import {
   Image,
   SafeAreaView,
@@ -25,6 +23,10 @@ import Feed from './Screens/Feed';
 import Article from './Screens/Article';
 import {NavigationContainer} from '@react-navigation/native';
 import {CommonActions} from '@react-navigation/native';
+import DemoStart from './Argon/DemoStart';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import Home from './Argon/Screens/Home/Home';
+import DrawerNavigator from './Argon/Screens/DrawerNavigator/DrawerNavigator';
 // import { useDispatch, useSelector } from 'react-redux';
 
 function App(): React.JSX.Element {
@@ -33,6 +35,8 @@ function App(): React.JSX.Element {
   // const dispatch = useDispatch();
   const [tabIndex, setTabIndex] = useState(0);
   const drawerNavigation = useRef(null);
+
+  const Stack = createNativeStackNavigator();
 
   const tabsData = [
     {
@@ -58,16 +62,17 @@ function App(): React.JSX.Element {
 
   return (
     <NavigationContainer>
-      <Drawer.Navigator>
-        <Drawer.Screen name="Feed" component={Feed} />
-        <Drawer.Screen name="Article" component={Article} />
-      </Drawer.Navigator>
+      <Stack.Navigator>
+        <Stack.Screen name="SplashScreen" component={DemoStart} options={{headerShown: false}} />
+        <Stack.Screen name="DrawerNavigator" component={DrawerNavigator} options={{headerShown: false}} />
+      </Stack.Navigator>
+      {/* <DemoStart /> */}
     </NavigationContainer>
   );
 }
 
 const styles = StyleSheet.create({
-  sectionContainer: { 
+  sectionContainer: {
     marginTop: 32,
     paddingHorizontal: 24,
   },
