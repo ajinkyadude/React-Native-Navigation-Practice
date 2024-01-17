@@ -3,7 +3,7 @@ import { TextInput, View } from "react-native";
 const CustomInputBox = () => {
     return (
         <View>
-            <TextInput />
+            <TextInput placeholder="sample"/>
         </View>
     )
 }
