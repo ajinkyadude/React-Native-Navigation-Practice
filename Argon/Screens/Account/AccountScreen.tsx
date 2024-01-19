@@ -8,23 +8,27 @@ import {
   View,
 } from 'react-native';
 import Icon2 from 'react-native-vector-icons/Ionicons';
+import Check from 'react-native-vector-icons/AntDesign';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {SplashScreen, Google} from '../../Assets';
 import Styles from './AccountStyle';
 import Constant from '../../Common/Constant';
+import CustomInputBox from '../../Common/TextField/CustomInputBox';
+import {useState} from 'react';
+import LongButton from '../../Common/LongButton/LongButton';
 
 const AccountScreen = ({navigation}: any) => {
   const backHandler = () => {
     navigation.goBack();
   };
+  const checkHandle = () => {
+    setChecked(!Checked);
+  };
+  const [Checked, setChecked] = useState(false);
   return (
     <ImageBackground source={SplashScreen} style={Styles.mainConatainer}>
       <View
-        style={{
-          backgroundColor: 'rgba(0, 0, 0, 0.3)',
-          width: '100%',
-          height: '100%',
-        }}>
+        style={Styles.safeAreViewContainer}>
         <SafeAreaView>
           <View style={Styles.headerContainer}>
             <View style={Styles.headerFirstSection}>
@@ -50,76 +54,93 @@ const AccountScreen = ({navigation}: any) => {
               />
             </View>
           </View>
-          <View style={{alignItems: 'center', justifyContent: 'center'}}>
-            <View
-              style={{
-                backgroundColor: '#F4F5F7',
-                width: '90%',
-                height: '90%',
-                borderRadius: 8,
-                marginTop: 20,
-              }}>
-              <View style={{backgroundColor: '#FFFFFF'}}>
-                <View style={{alignItems: 'center', marginTop: 30}}>
-                  <Text style={{color: '#ADB5BD', fontSize: 15}}>
-                    Sign up with
-                  </Text>
+          <View style={Styles.whiteContainer}>
+            <View style={Styles.whiteSubContainer}>
+              <View style={Styles.subWhiteContainer}>
+                <View style={Styles.signUpTextContainer}>
+                  <Text style={Styles.signUpText}>{Constant.signUpText}</Text>
                 </View>
-                <View
-                  style={{
-                    flexDirection: 'row',
-                    justifyContent: 'space-evenly',
-                    marginTop: 30,
-                  }}>
-                  <TouchableOpacity
-                    style={{
-                      flexDirection: 'row',
-                      width: '40%',
-                      shadowColor: 'black',
-                      shadowOffset: {width: 10, height: 10},
-                      shadowOpacity: 0.2,
-                      shadowRadius: 10,
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      paddingVertical: 13,
-                      backgroundColor: '#FFFFFF',
-                      borderRadius: 5,
-                    }}>
-                    <Icon name="github" size={21} color={'black'} />
-                    <Text
-                      style={{
-                        fontWeight: 'bold',
-                        color: '#5E72E4',
-                        marginLeft: 10,
-                      }}>
-                      GITHUB
+                <View style={Styles.loginWithApp}>
+                  <TouchableOpacity style={Styles.gitHubContainer}>
+                    <Icon
+                      name={Constant.gitHubIcon}
+                      size={21}
+                      color={'black'}
+                    />
+                    <Text style={Styles.gitHubStyle}>
+                      {Constant.gitHubText}
                     </Text>
                   </TouchableOpacity>
-                  <TouchableOpacity
-                    style={{
-                      flexDirection: 'row',
-                      //   padding: 20,
-                      width: '40%',
-                      shadowColor: 'black',
-                      shadowOffset: {width: 10, height: 10},
-                      shadowOpacity: 0.2,
-                      shadowRadius: 10,
-                      backgroundColor: '#FFFFFF',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      borderRadius: 5,
-                    }}>
-                    {/* <Icon name="github" size={21} color={'black'} /> */}
+                  <TouchableOpacity style={Styles.gitHubContainer}>
                     <Image source={Google} style={{width: 21, height: 21}} />
-                    <Text
-                      style={{
-                        fontWeight: 'bold',
-                        color: '#5E72E4',
-                        marginLeft: 10,
-                      }}>
-                      GITHUB
+                    <Text style={Styles.gitHubStyle}>
+                      {Constant.googleText}
                     </Text>
                   </TouchableOpacity>
+                </View>
+              </View>
+              <View style={Styles.signUpCredential}>
+                <View style={Styles.signUpCredentialSub}>
+                  <View style={Styles.signUpSubContainer}>
+                    <Text style={Styles.signUpCredentialText}>
+                      {Constant.signUpCredentialText}
+                    </Text>
+                  </View>
+                  <View style={Styles.textInputContainer}>
+                    <CustomInputBox
+                      placeHolder={Constant.inputPlaceholderName}
+                      firstIcon={Constant.graduationIcon}
+                      ExternalStyle={Styles.inputStyle}
+                    />
+                    <CustomInputBox
+                      placeHolder={Constant.inputPlaceholderEmail}
+                      firstIcon={Constant.envelopeIcon}
+                      ExternalStyle={Styles.inputStyle}
+                    />
+                    <CustomInputBox
+                      placeHolder={Constant.inputPlaceholder}
+                      firstIcon={Constant.passwordIcon}
+                      ExternalStyle={Styles.inputStyle}
+                    />
+                  </View>
+                  <View style={Styles.passwordStreght}>
+                    <Text style={Styles.passwordStreghtText}>
+                      {Constant.passwordStreghtText}
+                      <Text style={Styles.strongText}>
+                        {Constant.strongText}
+                      </Text>
+                    </Text>
+                  </View>
+                  <View style={Styles.checkboxContainer}>
+                    <TouchableOpacity onPress={checkHandle}>
+                      <Icon
+                        name={
+                          Checked
+                            ? Constant.accountChecked
+                            : Constant.accountUnChecked
+                        }
+                        size={23}
+                        color={'#5E72E4'}
+                      />
+                    </TouchableOpacity>
+                    <Text style={Styles.checkFirstText}>
+                      {Constant.checkFirstText}
+                      <Text style={Styles.checkSecondText}>
+                        {Constant.checkSecondText}
+                      </Text>
+                    </Text>
+                  </View>
+                  <View
+                    style={Styles.createAccountContainer}>
+                    <View style={Styles.buttonStyle}>
+                      <LongButton
+                        Label={Constant.createButton}
+                        TextColor={'#FFFFFF'}
+                        ButtonColor={'#5E72E4'}
+                        onPress={() => {}}
+                      />
+                    </View>
+                  </View>
                 </View>
               </View>
             </View>

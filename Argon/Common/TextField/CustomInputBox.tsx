@@ -1,30 +1,50 @@
-import {TextInput, View} from 'react-native';
+import {TextInput, TouchableOpacity, View} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 interface CustomInput {
   borderColor?: string;
   lastIcon?: string;
   placeHolder: string;
+  firstIcon?: string;
+  ExternalStyle?: any;
 }
 
-const CustomInputBox = ({borderColor, lastIcon, placeHolder}: CustomInput) => {
+const CustomInputBox = ({
+  borderColor,
+  lastIcon,
+  placeHolder,
+  firstIcon,
+  ExternalStyle,
+}: CustomInput) => {
   return (
     <View
-      style={{
-        borderWidth: 1,
-        borderColor: borderColor ? borderColor : 'transparent',
-        backgroundColor: 'white',
-        width: '100%',
-        padding: 14,
-        paddingRight: 20,
-        borderRadius: 4,
-        elevation: 10,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-      }}>
+      style={[
+        {
+          borderWidth: 1,
+          borderColor: borderColor ? borderColor : 'transparent',
+          backgroundColor: 'white',
+          width: '100%',
+          padding: 14,
+          paddingRight: 20,
+          borderRadius: 4,
+          elevation: 10,
+          flexDirection: 'row',
+          justifyContent: lastIcon && 'space-between',
+          alignItems: 'center',
+        },
+        ExternalStyle,
+      ]}>
+      {firstIcon && (
+        <TouchableOpacity>
+          <Icon name={firstIcon} color={'#ADB5BD'} style={{marginRight: 15}} />
+        </TouchableOpacity>
+      )}
       <TextInput placeholder={placeHolder} />
-      {lastIcon && <Icon name={lastIcon} color={'black'} />}
+      {lastIcon && (
+        <TouchableOpacity>
+          <Icon name={lastIcon} color={'#ADB5BD'} size={18} />
+        </TouchableOpacity>
+      )}
     </View>
   );
 };
