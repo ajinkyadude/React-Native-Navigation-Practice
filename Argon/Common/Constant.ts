@@ -35,6 +35,7 @@ const Constant = {
   checkFirstText: 'I agree with the',
   checkSecondText: 'Privacy Policy',
   createButton: 'CREATE ACCOUNT',
+  profileText: 'Profile'
 };
 
 export default Constant;

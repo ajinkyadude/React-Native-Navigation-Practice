@@ -7,6 +7,7 @@ import Man from './man.png';
 import Nature from './Nature.png';
 import BlueLogo from './blueLogo.png';
 import Google from './google.png';
+import ProfileImage from './profileImage.png';
 
 export {
   SplashScreen,
@@ -17,5 +18,6 @@ export {
   Man,
   Nature,
   BlueLogo,
-  Google
+  Google,
+  ProfileImage
 };
