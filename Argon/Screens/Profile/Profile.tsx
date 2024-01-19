@@ -165,6 +165,7 @@ const Profile = ({navigation}: any) => {
               <View style={{alignItems: 'center', marginTop: 20}}>
                 <Text style={{color: '#525F7F', fontSize: 16}}>
                   An artist of considerable range, jessica
+                  
                 </Text>
                 <Text style={{color: '#525F7F', fontSize: 16}}>
                   name taken by Melbourne ...
