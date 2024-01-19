@@ -1,5 +1,5 @@
 import {useEffect} from 'react';
-import {Image, Text, View, Dimensions} from 'react-native';
+import {Image, Text, View, Dimensions, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Fashion from 'react-native-vector-icons/Fontisto';
 import Styles from './HomeStyle';
@@ -78,14 +78,18 @@ const Home = ({navigation}: any) => {
           imageName={Man}
           text={Constant.flowerText}
         />
-        <View style={{backgroundColor: 'white',marginTop: 30, borderRadius: 8}}>
-          <Image source={Nature} style={{borderTopRightRadius: 8, borderTopLeftRadius: 8}}/>
-          <Text style={{width: 200, padding: 10}} numberOfLines={1}>{Constant.natureText}</Text>
-          {/* <View style={{bottom: -40}}> */}
+        <View
+          style={{backgroundColor: 'white', marginTop: 30, borderRadius: 8}}>
+          <Image
+            source={Nature}
+            style={{borderTopRightRadius: 8, borderTopLeftRadius: 8}}
+          />
+          <Text style={{width: 200, padding: 10}} numberOfLines={1}>
+            {Constant.natureText}
+          </Text>
             <Text style={{fontWeight: 'bold', color: '#5E72E4', padding: 10}}>
               View article
             </Text>
-          {/* </View> */}
         </View>
       </View>
     </ScrollView>

@@ -6,6 +6,7 @@ import Girl from './Girl.png';
 import Man from './man.png';
 import Nature from './Nature.png';
 import BlueLogo from './blueLogo.png';
+import Google from './google.png';
 
 export {
   SplashScreen,
@@ -16,4 +17,5 @@ export {
   Man,
   Nature,
   BlueLogo,
+  Google
 };

@@ -14,6 +14,9 @@ const Constant = {
   manText: 'Fashion is a popular style especially my self ajinkya dude',
   natureText: 'Argon is a great free package my self ajinkya dude',
   backLogo: 'chevron-back-outline',
+  accountCreate: 'Create Account',
+  bellIcon: 'bell-badge',
+  shoppingIcon: 'shopping',
 };
 
 export default Constant;
