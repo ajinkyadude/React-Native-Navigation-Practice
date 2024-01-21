@@ -16,7 +16,8 @@ import Constant from '../../Common/Constant';
 import CustomInputBox from '../../Common/TextField/CustomInputBox';
 import {useState} from 'react';
 import LongButton from '../../Common/LongButton/LongButton';
-import GoogleAuthProvider from '@react-native-firebase/auth';
+// import GoogleAuthProvider from '@react-native-firebase/auth';
+import auth from '@react-native-firebase/auth';
 import {
   GoogleSignin,
   statusCodes,
@@ -39,10 +40,16 @@ const AccountScreen = ({navigation}: any) => {
   const signIn = async () => {
     try {
       await GoogleSignin.hasPlayServices();
+      //   const {idToken} = await GoogleSignin.signIn();
       const userInfo = await GoogleSignin.signIn();
       //   const googleCredentials = GoogleAuthProvider;
       setState(userInfo);
-      console.log('userInfo  ****  ' + userInfo);
+      //   const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+      //   console.log("googleCredential ****  "+googleCredential);
+
+      //   await  auth().signInWithCredential(googleCredential);
+
+      //   console.log('userInfo  ****  ' + userInfo);
     } catch (error: any) {
       if (error.code === statusCodes.SIGN_IN_CANCELLED) {
         // user cancelled the login flow
