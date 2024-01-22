@@ -77,6 +77,7 @@ const Styles = StyleSheet.create({
     paddingVertical: 13,
     backgroundColor: '#FFFFFF',
     borderRadius: 5,
+    elevation: 10
   },
   gitHubStyle: {
     fontWeight: 'bold',
