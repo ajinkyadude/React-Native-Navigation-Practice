@@ -63,6 +63,8 @@ const AccountScreen = ({navigation}: any) => {
     }
   };
 
+  console.log('userInfo ***  ' + JSON.stringify(state));
+
   const [Checked, setChecked] = useState(false);
   return (
     <ImageBackground source={SplashScreen} style={Styles.mainConatainer}>
