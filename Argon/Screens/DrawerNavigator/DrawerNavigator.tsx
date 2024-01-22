@@ -11,6 +11,7 @@ import HomeIcon from 'react-native-vector-icons/Ionicons';
 import AccountNavigator from '../Account/Account';
 import AccountScreen from '../Account/AccountScreen';
 import Profile from '../Profile/Profile';
+import Component from '../Component/Component';
 const Drawer = createDrawerNavigator();
 
 const DrawerCustom = (props: any) => {
@@ -91,6 +92,23 @@ const DrawerNavigator = () => {
             return (
               <Icon
                 name="chart-pie"
+                color={color}
+                size={25}
+                style={{marginLeft: 10}}
+              />
+            );
+          },
+        }}
+      />
+      <Drawer.Screen
+        name="Component"
+        component={Component}
+        options={{
+          // headerShown: false,
+          drawerIcon: ({color}) => {
+            return (
+              <Icon
+                name="rocket-launch"
                 color={color}
                 size={25}
                 style={{marginLeft: 10}}

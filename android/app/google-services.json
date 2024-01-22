@@ -1,0 +1,90 @@
+{
+  "project_info": {
+    "project_number": "767079140138",
+    "project_id": "pushnotification-528ef",
+    "storage_bucket": "pushnotification-528ef.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:767079140138:android:5d84555b1fd60cbe372c53",
+        "android_client_info": {
+          "package_name": "com.Sqlite"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "767079140138-bt9p3rucad6grlcpch6qaj30ju8cbdt7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAE4dYf1eTHTj_s1pKwAhlZx4f0ARJRFYc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "767079140138-bt9p3rucad6grlcpch6qaj30ju8cbdt7.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "767079140138-5f94ap4tvcfh2dk8p22oo710f7pgki96.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.reactjs.native.example.BloodShot"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:767079140138:android:83abfa3abf63b5bc372c53",
+        "android_client_info": {
+          "package_name": "com.bloodshot"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "767079140138-r9t1mibmera19bks72t7u2k40vu89hf3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bloodshot",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "767079140138-bt9p3rucad6grlcpch6qaj30ju8cbdt7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAE4dYf1eTHTj_s1pKwAhlZx4f0ARJRFYc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "767079140138-bt9p3rucad6grlcpch6qaj30ju8cbdt7.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "767079140138-5f94ap4tvcfh2dk8p22oo710f7pgki96.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.reactjs.native.example.BloodShot"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

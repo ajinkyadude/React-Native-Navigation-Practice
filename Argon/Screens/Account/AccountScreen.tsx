@@ -16,6 +16,17 @@ import Constant from '../../Common/Constant';
 import CustomInputBox from '../../Common/TextField/CustomInputBox';
 import {useState} from 'react';
 import LongButton from '../../Common/LongButton/LongButton';
+// import GoogleAuthProvider from '@react-native-firebase/auth';
+import auth from '@react-native-firebase/auth';
+import {
+  GoogleSignin,
+  statusCodes,
+} from '@react-native-google-signin/google-signin';
+
+GoogleSignin.configure({
+  webClientId:
+    '767079140138-bt9p3rucad6grlcpch6qaj30ju8cbdt7.apps.googleusercontent.com', // client ID of type WEB for your server. Required to get the idToken on the user object, and for offline access.
+});
 
 const AccountScreen = ({navigation}: any) => {
   const backHandler = () => {
@@ -24,11 +35,40 @@ const AccountScreen = ({navigation}: any) => {
   const checkHandle = () => {
     setChecked(!Checked);
   };
+  const [state, setState] = useState({});
+
+  const signIn = async () => {
+    try {
+      await GoogleSignin.hasPlayServices();
+      //   const {idToken} = await GoogleSignin.signIn();
+      const userInfo = await GoogleSignin.signIn();
+      //   const googleCredentials = GoogleAuthProvider;
+      setState(userInfo);
+      //   const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+      //   console.log("googleCredential ****  "+googleCredential);
+
+      //   await  auth().signInWithCredential(googleCredential);
+
+      //   console.log('userInfo  ****  ' + userInfo);
+    } catch (error: any) {
+      if (error.code === statusCodes.SIGN_IN_CANCELLED) {
+        // user cancelled the login flow
+      } else if (error.code === statusCodes.IN_PROGRESS) {
+        // operation (e.g. sign in) is in progress already
+      } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
+        // play services not available or outdated
+      } else {
+        // some other error happened
+      }
+    }
+  };
+
+  console.log('userInfo ***  ' + JSON.stringify(state));
+
   const [Checked, setChecked] = useState(false);
   return (
     <ImageBackground source={SplashScreen} style={Styles.mainConatainer}>
-      <View
-        style={Styles.safeAreViewContainer}>
+      <View style={Styles.safeAreViewContainer}>
         <SafeAreaView>
           <View style={Styles.headerContainer}>
             <View style={Styles.headerFirstSection}>
@@ -70,8 +110,11 @@ const AccountScreen = ({navigation}: any) => {
                     <Text style={Styles.gitHubStyle}>
                       {Constant.gitHubText}
                     </Text>
+                    <Text>{state?.user?.name}</Text>
                   </TouchableOpacity>
-                  <TouchableOpacity style={Styles.gitHubContainer}>
+                  <TouchableOpacity
+                    style={Styles.gitHubContainer}
+                    onPress={signIn}>
                     <Image source={Google} style={{width: 21, height: 21}} />
                     <Text style={Styles.gitHubStyle}>
                       {Constant.googleText}
@@ -130,8 +173,7 @@ const AccountScreen = ({navigation}: any) => {
                       </Text>
                     </Text>
                   </View>
-                  <View
-                    style={Styles.createAccountContainer}>
+                  <View style={Styles.createAccountContainer}>
                     <View style={Styles.buttonStyle}>
                       <LongButton
                         Label={Constant.createButton}

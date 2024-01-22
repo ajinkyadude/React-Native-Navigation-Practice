@@ -6,14 +6,22 @@ interface Button {
   ButtonColor?: any;
   TextColor?: any;
   onPress: () => void;
+  ExternalStyle?: any;
 }
 
-const LongButton = ({Label, ButtonColor, TextColor, onPress}: Button) => {
+const LongButton = ({
+  Label,
+  ButtonColor,
+  TextColor,
+  onPress,
+  ExternalStyle,
+}: Button) => {
   return (
     <TouchableOpacity
       style={[
         Styles.TouchableStyle,
         ButtonColor && {backgroundColor: ButtonColor},
+        ExternalStyle && ExternalStyle,
       ]}
       onPress={onPress}>
       <Text style={[Styles.buttonTextStyle, TextColor && {color: TextColor}]}>
